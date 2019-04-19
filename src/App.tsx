@@ -3,12 +3,25 @@ import * as styles from "./App.scss";
 
 interface Props {}
 
-interface State {}
+interface State {
+    input: string;
+}
 
 class App extends React.Component<Props, State> {
+    state = {
+        input: "test"
+    };
+    test = async () => {
+        await setTimeout(() => this.setState({ input: "test2" }), 1000);
+    };
     render() {
-        console.log(styles);
-        return <div className={styles.App}>Hello world</div>;
+        const { input } = this.state;
+        console.log(input);
+        return (
+            <div className={styles.App}>
+                {input} <button onClick={this.test}>업</button>
+            </div>
+        );
     }
 }
 
