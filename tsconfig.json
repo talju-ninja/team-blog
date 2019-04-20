@@ -4,6 +4,12 @@
         "lib": ["esnext", "dom"],
         "module": "commonjs",
         "strict": true,
-        "jsx": "react"
-    }
+        "jsx": "react",
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noUnusedLocals": true
+    },
+    "exclude": ["node_modules"]
 }
