@@ -1,7 +1,8 @@
 import * as React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AboutTeamPage from './pages/AboutTeamPage';
+import Test from './components/Test';
 
 interface Props {}
 
@@ -11,7 +12,10 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <Router>
-        <Route path="/about/team" component={AboutTeamPage} />
+        <Switch>
+          <Route path="/about/team" component={AboutTeamPage} />
+          <Route path="/" component={Test} />
+        </Switch>
       </Router>
     );
   }
