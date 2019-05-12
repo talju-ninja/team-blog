@@ -1,5 +1,8 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
+import NewPostPage from './pages/NewPostPage';
 
-ReactDOM.render(<App />, document.getElementById('root') as HTMLElement);
+ReactDOM.render(<NewPostPage />, document.getElementById(
+  'root',
+) as HTMLElement);
