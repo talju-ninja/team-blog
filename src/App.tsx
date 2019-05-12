@@ -1,25 +1,18 @@
 import * as React from 'react';
-import * as styles from './App.scss';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
+import AboutTeamPage from './pages/AboutTeamPage';
 
 interface Props {}
 
-interface State {
-  input: string;
-}
+interface State {}
 
 class App extends React.Component<Props, State> {
-  state = {
-    input: 'test',
-  };
-  test = async () => {
-    await setTimeout(() => this.setState({ input: 'test2' }), 1000);
-  };
   render() {
-    const { input } = this.state;
     return (
-      <div className={styles.App}>
-        {input} <button onClick={this.test}>업</button>
-      </div>
+      <Router>
+        <Route path="/about/team" component={AboutTeamPage} />
+      </Router>
     );
   }
 }
