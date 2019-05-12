@@ -28,6 +28,17 @@
 
 `git remote add [upstream address]`
 
+## npm version 관리
+
+완전한 페이지를 작성한 경우 minor 업데이트
+
+짜짤한 기능 추가나 업데이트 할 경우 patch 업데이트
+
+```
+npm version patch 1.0.1
+npm version minor 1.1.0
+```
+
 ## git commit 메세지 작성
 
 Git Commit log
