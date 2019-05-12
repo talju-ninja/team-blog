@@ -24,6 +24,34 @@
 
 ```
 
+## git remote 추가하기
+
+`git remote add [upstream address]`
+
+## git commit 메세지 작성
+
+Git Commit log
+예시
+
+```
+feat: add hat wobble
+^--^ ^------------^
+| |
+| +-> Summary in present tense.
+|
++-------> Type: docs, feat, fix, refactor, style.
+```
+
+feat: 새로운 기능을 만들었을 때 (new feature for the user, not a new feature for build script)
+
+fix: 버그 수정할 때 (bug fix for the user, not a fix to a build script)
+
+docs: 문서 변경할 때 (changes to the documentation)
+
+style: 코드 스타일 변경 (formatting, missing semi colons, etc; no production code change)
+
+refactor: 리팩토링 했을때 (refactoring production code, eg. renaming a variable)
+
 ## 참고 사이트
 
 [Typescript](https://medium.com/@dors718/linting-your-react-typescript-project-with-eslint-and-prettier-2423170c3d42)
