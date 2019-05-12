@@ -24,6 +24,10 @@
 
 ```
 
+## git remote 추가하기
+
+`git remote add [upstream address]`
+
 ## 참고 사이트
 
 [Typescript](https://medium.com/@dors718/linting-your-react-typescript-project-with-eslint-and-prettier-2423170c3d42)
