@@ -43,9 +43,13 @@ feat: add hat wobble
 ```
 
 feat: 새로운 기능을 만들었을 때 (new feature for the user, not a new feature for build script)
+
 fix: 버그 수정할 때 (bug fix for the user, not a fix to a build script)
+
 docs: 문서 변경할 때 (changes to the documentation)
+
 style: 코드 스타일 변경 (formatting, missing semi colons, etc; no production code change)
+
 refactor: 리팩토링 했을때 (refactoring production code, eg. renaming a variable)
 
 ## 참고 사이트
