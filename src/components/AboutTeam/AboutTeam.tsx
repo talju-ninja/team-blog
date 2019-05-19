@@ -4,8 +4,6 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { withStyles } from '@material-ui/styles';
 import Paper from '@material-ui/core/Paper';
 
-interface Props {}
-
 const styles = {
   '@media (max-width: 414px)': {
     readableHidden: {
