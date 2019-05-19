@@ -1,24 +1,30 @@
 import * as React from 'react';
-import * as style from './style.scss';
+
+// Metarial UI
 import Chip from '@material-ui/core/Chip';
 import Input from '@material-ui/core/Input';
 import { withStyles, createStyles } from '@material-ui/core/styles';
 
+// Style load
+import * as style from './style.scss';
+import { primaryColor, secondColor } from '../index';
+
+// Metarial UI component style
 const styles = createStyles({
-  tagInput: {},
-  tag: {
-    backgroundColor: '#6F93B7',
-    color: '#fff',
-  },
-  '@media (max-width: 414px)': {
-    tagInput: {
+  tagInput: {
+    '@media (max-width: 414px)': {
+      padding: '0 5px',
       width: '100%',
-      margin: '20px 0 10px',
+      margin: '20px 0 5px',
       fontSize: '14px',
       '&::after': {
-        borderBottom: '1px solid tomato',
+        borderBottom: `1px solid ${primaryColor}`,
       },
     },
+  },
+  tag: {
+    backgroundColor: secondColor,
+    color: '#fff',
   },
 });
 
