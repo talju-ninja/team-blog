@@ -2,21 +2,16 @@
   padding: 20px;
 }
 
+.tagContainer {
+  display: inline-block;
+  margin: 10px 5px 10px 0;
+}
+
 .hidden {
+  position: absolute;
   width: 1px;
   height: 1px;
   margin: -1px;
-  position: absolute;
-  overflow: hidden;
   clip: rect(0, 0, 0, 0);
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  list-style: none;
+  overflow: hidden;
 }

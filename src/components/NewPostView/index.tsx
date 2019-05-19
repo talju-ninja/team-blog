@@ -20,11 +20,13 @@ const styles = createStyles({
     flexWrap: 'wrap',
     width: '500px',
     margin: '20px auto',
-    fontSize: '20px',
+    fontSize: '18px',
   },
   button: {
     backgroundColor: 'tomato',
     color: '#fff',
+    fontSize: '14px',
+    marginTop: '10px',
   },
   '@media (max-width: 414px)': {
     title: {
@@ -37,6 +39,7 @@ const styles = createStyles({
     button: {
       backgroundColor: 'tomato',
       color: '#fff',
+      width: '100%',
     },
   },
 });
