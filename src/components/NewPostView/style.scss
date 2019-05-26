@@ -1,5 +1,12 @@
+@import '../../reset.scss';
+
 .main {
-  padding: 20px;
+  @include desktop {
+    width: 1024px;
+    margin: 0 auto;
+  }
+  padding: 40px;
+  position: relative;
 }
 
 .tagContainer {

@@ -22,12 +22,12 @@ const styles = createStyles({
   title: {
     display: 'block',
     flexWrap: 'wrap',
-    width: '500px',
-    margin: '20px auto',
-    fontSize: '18px',
+    width: '100%',
+    fontSize: '24px',
+    margin: '20px 0',
+    padding: '5px 10px',
 
-    '@media (max-width: 414px)': {
-      width: '100%',
+    '@media (max-width: 1023px)': {
       padding: '0 10px',
       '&::after': {
         borderBottom: `1px solid ${primaryColor}`,
@@ -35,14 +35,17 @@ const styles = createStyles({
     },
   },
   button: {
-    '@media (max-width: 414px)': {
-      marginTop: '10px',
+    display: 'inline-block',
+    backgroundColor: primaryColor,
+    fontSize: '16px',
+    color: '#fff',
+    width: '100%',
+    marginTop: '10px',
+    '&:hover': {
       backgroundColor: primaryColor,
-      color: '#fff',
+    },
+    '@media (max-width: 1023px)': {
       width: '100%',
-      '&:hover': {
-        backgroundColor: primaryColor,
-      },
     },
   },
 });
@@ -62,13 +65,17 @@ const { useState, useEffect } = React;
 function useEditor(): tuiEditor.Editor | null {
   const [editor, setEditor] = useState<tuiEditor.Editor | null>(null);
   useEffect(() => {
+    const tuiEditorWidth =
+      window.innerWidth >= 1024
+        ? window.innerHeight - 150
+        : window.innerWidth * 0.7;
     if (editor === null) {
       setEditor(
         new Editor({
           el: document.querySelector('#editSection') as Element,
           initialEditType: 'markdown',
-          previewStyle: window.innerWidth <= 414 ? 'tab' : 'vertical',
-          height: (window.innerWidth * 0.75).toString() + 'px',
+          previewStyle: window.innerWidth <= 1024 ? 'tab' : 'vertical',
+          height: tuiEditorWidth.toString() + 'px',
         }),
       );
     }
@@ -94,7 +101,6 @@ const NewPostView: React.FC<Props> = function(props) {
   const editor: tuiEditor.Editor | null = useEditor();
   const [title, handleTitle] = useTitle();
 
-  // return JSX Element
   return (
     <main className={style.main}>
       <h2 className={style.hidden}>새로운 포스트 작성</h2>
@@ -107,7 +113,7 @@ const NewPostView: React.FC<Props> = function(props) {
           'aria-label': 'Description',
         }}
       />
-      <section id="editSection" />
+      <section className={style.editSection} id="editSection" />
       <InputTages />
       <Button
         onClick={e =>
