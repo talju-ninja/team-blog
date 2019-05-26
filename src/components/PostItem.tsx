@@ -56,10 +56,10 @@ class PostItem extends React.Component<Props, State> {
 
     return (
       <Card className={classes.card}>
-        <CardHeader
+        {/* <CardHeader
           avatar={
             <Avatar aria-label="Recipe" className={classes.avatar}>
-              R
+              유저
             </Avatar>
           }
           action={
@@ -67,12 +67,12 @@ class PostItem extends React.Component<Props, State> {
               <MoreVertIcon />
             </IconButton>
           }
-          title="Shrimp and Chorizo Paella"
+          title="블로그 제목"
           subheader={new Date().toLocaleTimeString()}
-        />
+        /> */}
         <CardMedia
           className={classes.media}
-          image="/static/images/cards/paella.jpg"
+          image="https://cdn-images-1.medium.com/max/1600/1*HP8l7LMMt7Sh5UoO1T-yLQ.png"
           title="Paella dish"
         />
         <CardContent>
@@ -82,14 +82,16 @@ class PostItem extends React.Component<Props, State> {
             the mussels, if you like.
           </Typography>
         </CardContent>
-        <CardActions className={classes.actions} disableActionSpacing>
-          <IconButton aria-label="Add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          <IconButton aria-label="Share">
-            <ShareIcon />
-          </IconButton>
-        </CardActions>
+        {false && (
+          <CardActions className={classes.actions} disableActionSpacing>
+            <IconButton aria-label="Add to favorites">
+              <FavoriteIcon />
+            </IconButton>
+            <IconButton aria-label="Share">
+              <ShareIcon />
+            </IconButton>
+          </CardActions>
+        )}
       </Card>
     );
   }
