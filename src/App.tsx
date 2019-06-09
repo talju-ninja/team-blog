@@ -1,7 +1,6 @@
 import * as React from 'react';
-import * as styles from './App.scss';
 import { Switch, Route } from 'react-router-dom';
-import Test from './components/Test';
+import PostList from './components/PostList';
 
 interface Props {}
 
@@ -11,7 +10,7 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <Switch>
-        <Route path="/" component={Test} />
+        <Route path="/" component={PostList} />
       </Switch>
     );
   }

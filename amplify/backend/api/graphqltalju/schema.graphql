@@ -1,0 +1,13 @@
+type Post @model {
+  id: ID!
+  clientId: String!
+  title: String!
+  markdown: String!
+  tags: [Tag] @connection
+  createdAt: String!
+}
+
+type Tag @model {
+  id: ID!
+  name: String!
+}
