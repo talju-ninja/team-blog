@@ -4,16 +4,9 @@ import Layout from '../layout/Layout';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/icons/Create';
 import { withStyles } from '@material-ui/core/styles';
-import { Theme } from '@material-ui/core/styles/createMuiTheme';
-import { secondColor } from '../assets';
 
-const styles = (theme: Theme) => ({
-  root: {
-    '&::after': {
-      display: 'block',
-      clear: 'both',
-    },
-  },
+const styles = {
+  root: {},
   fab: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     border: 0,
@@ -22,9 +15,8 @@ const styles = (theme: Theme) => ({
     color: 'white',
     height: 60,
     padding: '0 30px',
-    float: 'right',
   },
-});
+};
 
 interface Props {
   classes: {
