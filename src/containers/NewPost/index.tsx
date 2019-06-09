@@ -5,8 +5,7 @@ function handleRequestNewPost(value: string): void {
   if (!value) {
     alert('포스트를 입력해주세요.');
   }
-  const text: string[] = value.split('\n');
-  console.log(text);
+  console.log(value);
 }
 
 export default function NewPost() {

@@ -160,3 +160,13 @@ button {
     @content;
   }
 }
+
+#viewerSection h1 {
+  font-size: 50px !important;
+  color: red;
+}
+
+#viewerSection pre {
+  font-size: 50px !important;
+  color: red;
+}

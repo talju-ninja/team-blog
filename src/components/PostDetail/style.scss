@@ -1,0 +1,54 @@
+@import '../../reset.scss';
+
+.main {
+  @include desktop {
+    width: 1024px;
+    margin: 0 auto;
+  }
+  padding: 40px;
+  position: relative;
+}
+
+.viewerSection {
+  color: #484848;
+  line-height: 1.6em;
+}
+
+.viewerSection h1,
+.viewerSection h2,
+.viewerSection h3,
+.viewerSection h4,
+.viewerSection h5,
+.viewerSection h6 {
+  border-bottom: 0;
+  margin-bottom: 30px;
+}
+
+.viewerSection h1 {
+  font-size: 42px;
+}
+
+.viewerSection h2 {
+  font-size: 36px;
+}
+
+.viewerSection h3 {
+  font-size: 32px;
+}
+
+.viewerSection h4 {
+  font-size: 28px;
+}
+
+.viewerSection h5 {
+  font-size: 24px;
+}
+
+.viewerSection h6 {
+  font-size: 20px;
+}
+
+.viewerSection p,
+.viewerSection li {
+  font-size: 16px;
+}
