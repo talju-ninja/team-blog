@@ -25,8 +25,39 @@ export const deletePost = (id: number) => ({
   payload: id,
 });
 
+const fakeDate = [
+  {
+    id: 1,
+    title: '테스트',
+    value: ['테스트', '테스트2'],
+    tags: ['테스트', '타입스크립트'],
+    createAt: '2019.06.23',
+  },
+  {
+    id: 2,
+    title: '타입스크립트',
+    value: ['타입스크립트', '타입스크립트2'],
+    tags: ['테스트', '타입스크립트'],
+    createAt: '2019.06.23',
+  },
+  {
+    id: 3,
+    title: '리액트',
+    value: ['리액트', '리액트2'],
+    tags: ['리액트', '타입스크립트'],
+    createAt: '2019.06.23',
+  },
+  {
+    id: 4,
+    title: '리덕스',
+    value: ['리덕스', '리덕스2'],
+    tags: ['리덕스', '타입스크립트'],
+    createAt: '2019.06.23',
+  },
+];
+
 const initialState: PostState = {
-  posts: [],
+  posts: fakeDate,
 };
 
 interface CreatePostAction {
@@ -49,7 +80,7 @@ export interface PostState {
   posts: Post[];
 }
 
-let id = 10;
+let id = fakeDate.length;
 
 export default function postReducer(
   state = initialState,
