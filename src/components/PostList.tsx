@@ -47,7 +47,7 @@ const PostList = ({ classes, posts }: Props) => {
           </Link>
         </div>
         {posts.map((post: Post) => (
-          <PostItem post={post} />
+          <PostItem key={post.id} post={post} />
         ))}
       </>
     </Layout>
