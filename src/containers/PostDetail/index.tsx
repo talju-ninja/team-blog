@@ -45,9 +45,6 @@ class PostDetail extends React.Component<IProps, IState> {
 }
 
 const mapStateToProps = (state: StoreState, props: IProps) => {
-  console.log(
-    state.post.posts.find(post => post.id === +props.match.params.id),
-  );
   return {
     content: state.post.posts.find(post => post.id === +props.match.params.id),
   };
