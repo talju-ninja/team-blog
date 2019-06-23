@@ -2,7 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
 import './index.scss';
-import './reset.scss';
 import { BrowserRouter } from 'react-router-dom';
 import modules from './modules';
 import { createStore } from 'redux';
