@@ -59,7 +59,7 @@ const InputTags: React.FC<Props> = props => {
         {tags.map((tag, index) => (
           <li
             onClick={e => removeTags(index)}
-            key={tag}
+            key={index}
             className={style.tagContainer}
           >
             <Chip
