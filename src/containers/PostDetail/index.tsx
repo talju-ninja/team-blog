@@ -5,10 +5,15 @@ import { getPosts } from '../../modules/post';
 import { IPosts } from '../../modules/post/post.interface';
 import { withRouter } from 'react-router-dom';
 
-interface IProps {}
+interface IProps {
+  content: IPosts;
+}
+interface IState {
+  content: IPosts;
+}
 
-class PostDetail extends React.Component<IProps> {
-  constructor(props) {
+class PostDetail extends React.Component<IProps, IState> {
+  constructor(props: IProps) {
     super(props);
     this.state = {
       content: {
@@ -22,18 +27,18 @@ class PostDetail extends React.Component<IProps> {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log(this.props);
     this.setState({
       content: this.props.content,
     });
   }
   render() {
-    return <PostDetailView content={this.state.content.value} />;
+    return <PostDetailView content={this.state.content} />;
   }
 }
 
 const mapStateToProps = (state, props) => ({
-  content: state.posts.find(post => post.id == props.match.params.id);
+  content: state.posts.find(post => post.id == props.match.params.id),
 });
 
 export default withRouter(
