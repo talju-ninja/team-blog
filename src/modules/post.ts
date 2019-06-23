@@ -1,5 +1,3 @@
-import { IArticle } from '../api';
-
 const CREATE_POST = 'CREATE_POST';
 const UPDATE_POST = 'UPDATE_POST';
 const DELETE_POST = 'DELETE_POST';

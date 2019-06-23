@@ -9,7 +9,7 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 
 import ListItem from '../ListItem/ListItem';
-import { IArticle } from '../../api';
+import { Post } from '../../modules/post';
 
 const styles = () =>
   createStyles({
@@ -60,7 +60,7 @@ const styles = () =>
 
 interface Props extends WithStyles<string> {
   input: string;
-  searchResult: IArticle[];
+  searchResult: Post[];
   handleInput: (e: React.SyntheticEvent) => void;
   handleSubmit: (e: React.SyntheticEvent) => void;
 }
@@ -88,7 +88,7 @@ const Search: React.SFC<Props> = (props: React.PropsWithChildren<Props>) => {
         </fieldset>
       </form>
       <ul className={classes.ul}>
-        {searchResult.map((item: IArticle) => (
+        {searchResult.map((item: Post) => (
           <ListItem key={item.id} data={item} />
         ))}
       </ul>

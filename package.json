@@ -19,6 +19,7 @@
         "codemirror": "^5.48.0",
         "highlight.js": "^9.15.8",
         "postcss-modules": "^1.4.1",
+        "query-string": "^6.8.1",
         "react": "^16.8.0",
         "react-dom": "^16.8.0",
         "react-redux": "^7.1.0",
