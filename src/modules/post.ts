@@ -45,11 +45,14 @@ interface DeletePostAction {
 
 type Actions = CreatePostAction | UpdatePostAction | DeletePostAction;
 
-interface State {
+export interface PostState {
   posts: Post[];
 }
 
-export default function reducer(state = initialState, action: Actions) {
+export default function postReducer(
+  state = initialState,
+  action: Actions,
+): PostState {
   switch (action.type) {
     case CREATE_POST:
       return {
