@@ -1,11 +1,21 @@
 import * as React from 'react';
-import PostItem from '../components/PostItem';
 import { connect } from 'react-redux';
+import { StoreState } from './../modules/index';
+import { Post } from './../modules/post';
+import PostList from '../components/PostList';
 
-class PostListContainer extends React.Component {
+interface Props {
+  posts: Post[];
+}
+
+class PostListContainer extends React.Component<Props> {
   render() {
-    return <PostItem />;
+    return <PostList posts={this.props.posts} />;
   }
 }
 
-export default connect()(PostListContainer);
+const mapStateToProps = (state: StoreState) => ({
+  posts: state.post.posts,
+});
+
+export default connect(mapStateToProps)(PostListContainer);

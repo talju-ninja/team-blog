@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AboutTeamPage from './pages/AboutTeamPage';
 import SearchContainer from './containers/SearchContainer';
-import PostList from './components/PostList';
+import PostListContainer from './containers/PostListContainer';
 
 interface Props {}
 
@@ -16,7 +16,7 @@ class App extends React.Component<Props, State> {
         <Switch>
           <Route path="/about/team" component={AboutTeamPage} />
           <Route path="/search" component={SearchContainer} />
-          <Route path="/" component={PostList} />
+          <Route path="/" component={PostListContainer} />
         </Switch>
       </Router>
     );
