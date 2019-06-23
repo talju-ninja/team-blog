@@ -25,7 +25,7 @@ export const deletePost = (id: number) => ({
   payload: id,
 });
 
-const initialState: State = {
+const initialState: PostState = {
   posts: [],
 };
 
@@ -62,7 +62,7 @@ export default function postReducer(
     case UPDATE_POST:
       return {
         ...state,
-        posts: state.posts.map(post => {
+        posts: state.posts.map((post: Post) => {
           if (post.id === action.payload.id) {
             post = action.payload;
           }
@@ -72,7 +72,7 @@ export default function postReducer(
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter(post => post.id !== action.payload),
+        posts: state.posts.filter((post: Post) => post.id !== action.payload),
       };
     default:
       return state;
