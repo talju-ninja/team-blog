@@ -2,16 +2,11 @@ import * as React from 'react';
 import PostDetailView from '../../components/PostDetail';
 import { connect } from 'react-redux';
 import { Post } from '../../modules/post';
-import { withRouter } from 'react-router-dom';
+import { withRouter, RouteComponentProps } from 'react-router-dom';
 import { StoreState } from '../../modules/index';
 
-interface IProps {
-  content: Post;
-  match: {
-    params: {
-      id: string;
-    };
-  };
+interface IProps extends RouteComponentProps<{ id: string }> {
+  content?: Post;
 }
 interface IState {
   content: Post;
@@ -19,9 +14,9 @@ interface IState {
 
 const fakeDataForStyling = {
   id: 0,
-  value: ['안녕하세요', '저는 바보입니다.', '반갑습니다.'],
-  tags: ['react', 'angular', 'vue'],
-  title: '자기소개를 하겠습니다.',
+  value: ['## 404 Not Found', '주소를 확인해주세요 :)'],
+  tags: ['404', 'Not', 'Found'],
+  title: '검색된 데이터가 없습니다.',
   createAt: new Date().toLocaleDateString(),
 };
 
@@ -40,7 +35,6 @@ class PostDetail extends React.Component<IProps, IState> {
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.setState({
       content: this.props.content || fakeDataForStyling,
     });
@@ -50,9 +44,11 @@ class PostDetail extends React.Component<IProps, IState> {
   }
 }
 
-const mapStateToProps = (state: StoreState, props: IProps) => ({
-  content: state.post.posts.find(post => post.id === +props.match.params.id),
-});
+const mapStateToProps = (state: StoreState, props: IProps) => {
+  return {
+    content: state.post.posts.find(post => post.id === +props.match.params.id),
+  };
+};
 
 export default withRouter(
   connect(
