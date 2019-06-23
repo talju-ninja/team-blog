@@ -1,17 +1,15 @@
-interface article {
+export interface IArticle {
   id: number;
   title: string;
-  author: string;
   content: string;
   createdAt: string;
   tags: string[];
 }
 
-const fakeData: article[] = [
+export const fakeData: IArticle[] = [
   {
     id: 1,
     title: 'typescript',
-    author: 'shin',
     content: 'lorem ipsum',
     createdAt: new Date().toLocaleDateString(),
     tags: ['tag1', 'tag2', 'tag3'],
@@ -19,7 +17,6 @@ const fakeData: article[] = [
   {
     id: 2,
     title: 'react',
-    author: 'kim',
     content: 'lorem ipsum',
     createdAt: new Date().toLocaleDateString(),
     tags: ['tag1', 'tag2', 'tag3'],
@@ -27,13 +24,13 @@ const fakeData: article[] = [
   {
     id: 3,
     title: 'redux',
-    author: 'seong',
     content: 'lorem ipsum',
     createdAt: new Date().toLocaleDateString(),
     tags: ['tag1', 'tag2', 'tag3'],
   },
 ];
 
+/*
 const setDelay = (ms: number) =>
   new Promise(resolve => setTimeout(resolve, ms));
 
@@ -43,5 +40,4 @@ const fetchData = async (id?: number) => {
   });
   return result;
 };
-
-export default fetchData;
+*/

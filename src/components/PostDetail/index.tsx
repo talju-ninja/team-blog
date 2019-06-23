@@ -44,15 +44,13 @@ function PostDetailView(props: IProp) {
       <h2 className={style.title}>{props.content.title}</h2>
       <p className={style.createAt}>{props.content.createAt}</p>
       <div className={style.viewerSection} id="viewerSection" />
-      <p>
+      <ul>
         {props.content.tags.map((tag: string, index: number) => (
           <li key={index} className={style.tagContainer}>
-            <Chip className={props.classes.tag} label={`# ${tag}`}>
-              {tag}
-            </Chip>
+            <Chip className={props.classes.tag} label={`# ${tag}`}></Chip>
           </li>
         ))}
-      </p>
+      </ul>
     </main>
   );
 }

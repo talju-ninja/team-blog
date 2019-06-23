@@ -9,6 +9,8 @@ import IconButton from '@material-ui/core/IconButton';
 import SearchIcon from '@material-ui/icons/Search';
 
 import ListItem from '../ListItem/ListItem';
+import { Post } from '../../modules/post';
+import Layout from '../../layout/Layout';
 
 const styles = () =>
   createStyles({
@@ -59,35 +61,41 @@ const styles = () =>
 
 interface Props extends WithStyles<string> {
   input: string;
+  searchResult: Post[];
   handleInput: (e: React.SyntheticEvent) => void;
+  handleSubmit: (e: React.SyntheticEvent) => void;
 }
 
 const Search: React.SFC<Props> = (props: React.PropsWithChildren<Props>) => {
-  const { classes, input, handleInput } = props;
+  const { classes, input, handleInput, handleSubmit, searchResult } = props;
   return (
-    <section className={classes.section}>
-      <form>
-        <fieldset className={classes.fieldset}>
-          <legend className={classes.legend}>검색</legend>
-          <Paper className={classes.root}>
-            <IconButton className={classes.iconButton} aria-label="Search">
-              <SearchIcon />
-            </IconButton>
-            <InputBase
-              className={classes.input}
-              placeholder="검색"
-              inputProps={{ 'aria-label': '검색' }}
-              value={input}
-              onInput={handleInput}
-            />
-            <Divider className={classes.divider} />
-          </Paper>
-        </fieldset>
-      </form>
-      <ul className={classes.ul}>
-        <ListItem />
-      </ul>
-    </section>
+    <Layout>
+      <section className={classes.section}>
+        <form onSubmit={handleSubmit}>
+          <fieldset className={classes.fieldset}>
+            <legend className={classes.legend}>검색</legend>
+            <Paper className={classes.root}>
+              <IconButton className={classes.iconButton} aria-label="Search">
+                <SearchIcon />
+              </IconButton>
+              <InputBase
+                className={classes.input}
+                placeholder="검색"
+                inputProps={{ 'aria-label': '검색' }}
+                value={input}
+                onInput={handleInput}
+              />
+              <Divider className={classes.divider} />
+            </Paper>
+          </fieldset>
+        </form>
+        <ul className={classes.ul}>
+          {searchResult.map((item: Post) => (
+            <ListItem key={item.id} data={item} />
+          ))}
+        </ul>
+      </section>
+    </Layout>
   );
 };
 

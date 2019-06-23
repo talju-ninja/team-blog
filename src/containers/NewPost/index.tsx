@@ -26,7 +26,6 @@ class NewPost extends React.Component<IProps> {
   }
 
   handleRequestNewPost = (title: string, value: string, tags: string[]) => {
-    // TODO: id 어떻게 할지
     const newPost = {
       title,
       value: value.split('\n'),
