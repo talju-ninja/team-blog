@@ -3,14 +3,21 @@ import * as ReactDOM from 'react-dom';
 import App from './App';
 import './index.scss';
 import { BrowserRouter } from 'react-router-dom';
-import Amplify from 'aws-amplify';
-import config from './aws-exports.js';
+import modules from './modules';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-Amplify.configure(config);
+const store = createStore(
+  modules,
+  (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+    (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
+);
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
   document.getElementById('root') as HTMLElement,
 );
