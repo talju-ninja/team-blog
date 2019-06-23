@@ -1,0 +1,24 @@
+@import '../../reset.scss';
+
+.main {
+  @include desktop {
+    width: 1024px;
+    margin: 0 auto;
+  }
+  padding: 40px;
+  position: relative;
+}
+
+.tagContainer {
+  display: inline-block;
+  margin: 10px 5px 10px 0;
+}
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+}

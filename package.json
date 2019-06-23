@@ -12,15 +12,19 @@
     "dependencies": {
         "@material-ui/core": "^3.9.3",
         "@material-ui/icons": "^4.0.1",
-        "@material-ui/styles": "^3.0.0-alpha.10",
+        "@material-ui/styles": "^4.1.1",
         "@types/react": "^16.8.13",
         "@types/react-dom": "^16.8.4",
+        "@types/redux": "^3.6.0",
+        "codemirror": "^5.48.0",
+        "highlight.js": "^9.15.8",
         "postcss-modules": "^1.4.1",
-        "react": "^16.8.6",
-        "react-dom": "^16.8.6",
+        "react": "^16.8.0",
+        "react-dom": "^16.8.0",
         "react-redux": "^7.1.0",
         "react-router-dom": "^5.0.0",
-        "redux": "^4.0.1"
+        "redux": "^4.0.1",
+        "tui-editor": "^1.4.3"
     },
     "devDependencies": {
         "@types/react-redux": "^7.1.0",
