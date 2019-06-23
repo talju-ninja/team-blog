@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Viewer from 'tui-editor/dist/tui-editor-Viewer';
 import * as style from './style.scss';
+import Layout from '../../layout/Layout';
 
 const { useState, useEffect } = React;
 
@@ -26,8 +27,10 @@ function usePost(content: string[]) {
 export default function index(props: IProp) {
   const [viewer] = usePost(props.content);
   return (
-    <main className={style.main}>
-      <div className={style.viewerSection} id="viewerSection" />
-    </main>
+    <Layout>
+      <main className={style.main}>
+        <div className={style.viewerSection} id="viewerSection" />
+      </main>
+    </Layout>
   );
 }
