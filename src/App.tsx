@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AboutTeamPage from './pages/AboutTeamPage';
 import SearchContainer from './containers/SearchContainer';
-import Test from './components/Test';
 import PostList from './components/PostList';
 
 interface Props {}
