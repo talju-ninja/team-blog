@@ -1,6 +1,11 @@
 import * as React from 'react';
+
 import { Switch, Route } from 'react-router-dom';
-import PostList from './components/PostList';
+import NewPostPage from './pages/NewPostPage';
+import PostDetailPage from './pages/PostDetailPage';
+import AboutTeamPage from './pages/AboutTeamPage';
+import SearchContainer from './containers/SearchContainer';
+import PostListContainer from './containers/PostListContainer';
 
 interface Props {}
 
@@ -10,7 +15,11 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <Switch>
-        <Route path="/" component={PostList} />
+        <Route path="/new-post" component={NewPostPage} />
+        <Route path="/post/:id" component={PostDetailPage} />
+        <Route path="/about/team" component={AboutTeamPage} />
+        <Route path="/search" component={SearchContainer} />
+        <Route path="/" component={PostListContainer} />
       </Switch>
     );
   }
