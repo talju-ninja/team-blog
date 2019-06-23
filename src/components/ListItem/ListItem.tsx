@@ -4,6 +4,7 @@ import { WithStyles } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import defaultImage from '../../../assets/images/default-image.png';
+import { IArticle } from '../../api';
 
 const styles = () =>
   createStyles({
@@ -34,21 +35,20 @@ const styles = () =>
     },
   });
 
-interface Props extends WithStyles<string> {}
+interface Props extends WithStyles<string> {
+  data: IArticle;
+}
 
 const ListItem: React.SFC<Props> = (props: React.PropsWithChildren<Props>) => {
-  const { classes } = props;
+  const { classes, data } = props;
   return (
     <>
       <CssBaseline />
       <li className={classes.li}>
         <dl className={classes.dl}>
-          <dt className={classes.dt}>여기에 글 제목이 와야됩니다.</dt>
-          <dd className={classes.dd}>
-            여기에 글 내용이 와야됩니다. 블라블라블라...
-          </dd>
-          <dd className={classes.dd}>2019.06.09</dd>
-          <dd className={classes.dd}>나루토</dd>
+          <dt className={classes.dt}>{data.title}</dt>
+          <dd className={classes.dd}>{data.content}</dd>
+          <dd className={classes.dd}>{data.createdAt}</dd>
         </dl>
       </li>
     </>
