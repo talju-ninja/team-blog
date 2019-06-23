@@ -3,7 +3,6 @@ import { withStyles, createStyles } from '@material-ui/styles';
 import { WithStyles } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import defaultImage from '../../../assets/images/default-image.png';
 import { IArticle } from '../../api';
 
 const styles = () =>
