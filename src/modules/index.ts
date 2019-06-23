@@ -1,14 +1,10 @@
 import { combineReducers } from 'redux';
-import { TodoState, todoReducer as todos } from './todos';
-import { postReducer as posts } from './post';
-import { IPosts } from './post/post.interface';
+import postReducer, { PostState } from './post';
 
 export interface StoreState {
-  todos: TodoState;
-  posts: IPosts[];
+  post: PostState;
 }
 
 export default combineReducers<StoreState>({
-  todos,
-  posts,
+  post: postReducer,
 });

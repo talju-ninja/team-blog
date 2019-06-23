@@ -4,9 +4,14 @@ import Layout from '../layout/Layout';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/icons/Create';
 import { withStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
 const styles = {
-  root: {},
+  root: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    margin: '20px 20px 0 20px',
+  },
   fab: {
     background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
     border: 0,
@@ -29,9 +34,11 @@ const PostList = ({ classes }: Props) => {
   return (
     <Layout>
       <div className={classes.root}>
-        <Fab aria-label="Edit" className={classes.fab}>
-          <Icon />
-        </Fab>
+        <Link to="/new-post">
+          <Fab aria-label="Edit" className={classes.fab}>
+            <Icon />
+          </Fab>
+        </Link>
       </div>
       <PostItem />
       <PostItem />

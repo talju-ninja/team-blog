@@ -9,7 +9,19 @@
   position: relative;
 }
 
+.title {
+  font-size: 36px;
+  color: #484848;
+  font-weight: 700;
+}
+
+.createAt {
+  margin-top: 15px;
+  font-size: 16px;
+}
+
 .viewerSection {
+  margin-top: 20px;
   color: #484848;
   line-height: 1.6em;
 }
