@@ -34,8 +34,6 @@ interface Props extends WithStyles<string> {
 }
 
 const PostList = ({ classes, posts }: Props) => {
-  console.log(posts);
-
   return (
     <Layout>
       <>
