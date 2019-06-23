@@ -5,7 +5,7 @@ const DELETE_POST = 'DELETE_POST';
 export interface Post {
   id?: number;
   title: string;
-  value: string;
+  value: string[];
   tags: string[];
   createAt: string;
 }
@@ -49,15 +49,18 @@ export interface PostState {
   posts: Post[];
 }
 
+let id = 10;
+
 export default function postReducer(
   state = initialState,
   action: Actions,
 ): PostState {
   switch (action.type) {
     case CREATE_POST:
+      id++;
       return {
         ...state,
-        posts: state.posts.concat(action.payload),
+        posts: state.posts.concat({ ...action.payload, id }),
       };
     case UPDATE_POST:
       return {

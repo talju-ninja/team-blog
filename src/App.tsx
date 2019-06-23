@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
 
+import { Switch, Route } from 'react-router-dom';
+import NewPostPage from './pages/NewPostPage';
+import PostDetailPage from './pages/PostDetailPage';
 import AboutTeamPage from './pages/AboutTeamPage';
 import SearchContainer from './containers/SearchContainer';
 import PostListContainer from './containers/PostListContainer';
@@ -13,6 +15,8 @@ class App extends React.Component<Props, State> {
   render() {
     return (
       <Switch>
+        <Route path="/new-post" component={NewPostPage} />
+        <Route path="/post/:id" component={PostDetailPage} />
         <Route path="/about/team" component={AboutTeamPage} />
         <Route path="/search" component={SearchContainer} />
         <Route path="/" component={PostListContainer} />
