@@ -12,7 +12,7 @@ interface IProp {
 function usePost(content: string[]) {
   const [viewer, setViewer] = useState<Viewer | null>(null);
   useEffect(() => {
-    if (!viewer) {
+    if (!viewer && content[0]) {
       setViewer(
         new Viewer({
           el: document.querySelector('#viewerSection') as Element,
@@ -20,7 +20,7 @@ function usePost(content: string[]) {
         }),
       );
     }
-  }, [viewer]);
+  });
   return [viewer];
 }
 
