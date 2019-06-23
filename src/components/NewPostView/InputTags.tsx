@@ -55,7 +55,7 @@ const InputTags: React.FC<Props> = props => {
         }}
         onKeyDown={e => handleTags(e)}
       />
-      <ul>
+      <ul className={style.tagsContainer}>
         {tags.map((tag, index) => (
           <li
             onClick={e => removeTags(index)}
