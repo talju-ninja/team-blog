@@ -11,8 +11,11 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import { primaryColor } from '../assets';
 import Menu from './Menu';
+import { WithStyles } from '@material-ui/core';
+import { RouteComponentProps } from 'react-router';
+import { withRouter } from 'react-router-dom';
 
-interface Props {
+interface Props extends WithStyles<string>, RouteComponentProps {
   classes: {
     root: string;
     appBar: string;
@@ -86,6 +89,9 @@ const styles = (theme: Theme) =>
 const Header = (props: Props) => {
   const { classes } = props;
   const [isDrawerOpen, toggleDrawer] = React.useState(false);
+  const [search, setSearch] = React.useState('');
+  const { match } = props;
+  const isMatch = match.path !== '/search';
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
@@ -103,22 +109,32 @@ const Header = (props: Props) => {
             Talju-ninja
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
+          {isMatch && (
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                placeholder="태그 검색"
+                classes={{
+                  root: classes.inputRoot,
+                  input: classes.inputInput,
+                }}
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                onKeyDown={e => {
+                  if (e.keyCode === 13) {
+                    const { history } = props;
+                    history.push(`/search?query=${search}`);
+                  }
+                }}
+              />
             </div>
-            <InputBase
-              placeholder="태그 검색"
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-            />
-          </div>
+          )}
         </ToolBar>
       </AppBar>
     </div>
   );
 };
 
-export default withStyles(styles)(Header);
+export default withStyles(styles)(withRouter(Header));

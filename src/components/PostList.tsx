@@ -34,8 +34,6 @@ interface Props extends WithStyles<string> {
 }
 
 const PostList = ({ classes, posts }: Props) => {
-  console.log(posts);
-
   return (
     <Layout>
       <>
@@ -47,7 +45,7 @@ const PostList = ({ classes, posts }: Props) => {
           </Link>
         </div>
         {posts.map((post: Post) => (
-          <PostItem post={post} />
+          <PostItem key={post.id} post={post} />
         ))}
       </>
     </Layout>
