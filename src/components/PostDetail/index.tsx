@@ -3,12 +3,24 @@ import Viewer from 'tui-editor/dist/tui-editor-Viewer';
 import * as style from './style.scss';
 import Layout from '../../layout/Layout';
 import { Post } from '../../modules/post';
+import { withStyles, createStyles } from '@material-ui/core/styles';
+import { secondColor } from '../index';
 import Chip from '@material-ui/core/Chip';
 
 const { useState, useEffect } = React;
 
+const styles = createStyles({
+  tag: {
+    backgroundColor: secondColor,
+    color: '#fff',
+  },
+});
+
 interface IProp {
   content: Post;
+  classes: {
+    tag: string;
+  };
 }
 
 function usePost(content: Post) {
@@ -26,7 +38,7 @@ function usePost(content: Post) {
   return;
 }
 
-export default function index(props: IProp) {
+function PostDetailView(props: IProp) {
   usePost(props.content);
   return (
     <Layout>
@@ -36,10 +48,20 @@ export default function index(props: IProp) {
         <div className={style.viewerSection} id="viewerSection" />
         <p>
           {props.content.tags.map((tag: string, index: number) => (
-            <li key={index}>{tag}</li>
+            <li className={style.tagContainer}>
+              <Chip
+                key={index}
+                className={props.classes.tag}
+                label={`# ${tag}`}
+              >
+                {tag}
+              </Chip>
+            </li>
           ))}
         </p>
       </main>
     </Layout>
   );
 }
+
+export default withStyles(styles)(PostDetailView);
