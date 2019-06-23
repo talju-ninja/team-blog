@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Viewer from 'tui-editor/dist/tui-editor-Viewer';
 import * as style from './style.scss';
-import Layout from '../../layout/Layout';
 import { Post } from '../../modules/post';
 import { withStyles, createStyles } from '@material-ui/core/styles';
 import { secondColor } from '../index';
@@ -26,7 +25,7 @@ interface IProp {
 function usePost(content: Post) {
   const [viewer, setViewer] = useState<Viewer | null>(null);
   useEffect(() => {
-    if (!viewer && content.value[0]) {
+    if (!viewer && content.title) {
       setViewer(
         new Viewer({
           el: document.querySelector('#viewerSection') as Element,
@@ -41,26 +40,20 @@ function usePost(content: Post) {
 function PostDetailView(props: IProp) {
   usePost(props.content);
   return (
-    <Layout>
-      <main className={style.main}>
-        <h2 className={style.title}>{props.content.title}</h2>
-        <p className={style.createAt}>{props.content.createAt}</p>
-        <div className={style.viewerSection} id="viewerSection" />
-        <p>
-          {props.content.tags.map((tag: string, index: number) => (
-            <li className={style.tagContainer}>
-              <Chip
-                key={index}
-                className={props.classes.tag}
-                label={`# ${tag}`}
-              >
-                {tag}
-              </Chip>
-            </li>
-          ))}
-        </p>
-      </main>
-    </Layout>
+    <main className={style.main}>
+      <h2 className={style.title}>{props.content.title}</h2>
+      <p className={style.createAt}>{props.content.createAt}</p>
+      <div className={style.viewerSection} id="viewerSection" />
+      <p>
+        {props.content.tags.map((tag: string, index: number) => (
+          <li key={index} className={style.tagContainer}>
+            <Chip className={props.classes.tag} label={`# ${tag}`}>
+              {tag}
+            </Chip>
+          </li>
+        ))}
+      </p>
+    </main>
   );
 }
 
