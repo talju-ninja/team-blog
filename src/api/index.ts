@@ -4,6 +4,7 @@ interface article {
   author: string;
   content: string;
   createdAt: string;
+  tags: string[];
 }
 
 const fakeData: article[] = [
@@ -13,6 +14,7 @@ const fakeData: article[] = [
     author: 'shin',
     content: 'lorem ipsum',
     createdAt: new Date().toLocaleDateString(),
+    tags: ['tag1', 'tag2', 'tag3'],
   },
   {
     id: 2,
@@ -20,6 +22,7 @@ const fakeData: article[] = [
     author: 'kim',
     content: 'lorem ipsum',
     createdAt: new Date().toLocaleDateString(),
+    tags: ['tag1', 'tag2', 'tag3'],
   },
   {
     id: 3,
@@ -27,6 +30,7 @@ const fakeData: article[] = [
     author: 'seong',
     content: 'lorem ipsum',
     createdAt: new Date().toLocaleDateString(),
+    tags: ['tag1', 'tag2', 'tag3'],
   },
 ];
 
