@@ -7,13 +7,16 @@ import defaultImage from '../../../assets/images/default-image.png';
 
 const styles = () =>
   createStyles({
+    li: {
+      padding: '2% 3%',
+      border: '1px solid red',
+    },
     dl: {
-      width: '70%',
+      width: '100%',
       '@media (max-width: 414px)': {
         width: '100%',
       },
       margin: '0 auto',
-      border: '1px solid red',
     },
     dt: {
       fontSize: 30,
@@ -38,7 +41,7 @@ const ListItem: React.SFC<Props> = (props: React.PropsWithChildren<Props>) => {
   return (
     <>
       <CssBaseline />
-      <li>
+      <li className={classes.li}>
         <dl className={classes.dl}>
           <dt className={classes.dt}>여기에 글 제목이 와야됩니다.</dt>
           <dd className={classes.dd}>

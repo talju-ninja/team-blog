@@ -15,11 +15,10 @@ const styles = () =>
     section: {
       width: '70%',
       '@media (max-width: 414px)': {
-        width: '90%',
+        width: '100%',
       },
       margin: '0 auto',
       padding: '0 5%',
-      backgroundColor: 'yellow',
     },
     fieldset: {
       border: 0,
@@ -58,10 +57,13 @@ const styles = () =>
     },
   });
 
-interface Props extends WithStyles<string> {}
+interface Props extends WithStyles<string> {
+  input: string;
+  handleInput: (e: React.SyntheticEvent) => void;
+}
 
 const Search: React.SFC<Props> = (props: React.PropsWithChildren<Props>) => {
-  const { classes } = props;
+  const { classes, input, handleInput } = props;
   return (
     <section className={classes.section}>
       <form>
@@ -75,6 +77,8 @@ const Search: React.SFC<Props> = (props: React.PropsWithChildren<Props>) => {
               className={classes.input}
               placeholder="검색"
               inputProps={{ 'aria-label': '검색' }}
+              value={input}
+              onInput={handleInput}
             />
             <Divider className={classes.divider} />
           </Paper>
