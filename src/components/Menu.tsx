@@ -10,6 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import BookIcon from '@material-ui/icons/Book';
 import FaceIcon from '@material-ui/icons/Face';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
+import { Link } from 'react-router-dom';
 
 const styles = (theme: Theme) => ({
   root: {
@@ -19,6 +20,9 @@ const styles = (theme: Theme) => ({
   },
   list: {
     width: 250,
+  },
+  link: {
+    textDecoration: 'none',
   },
 });
 
@@ -31,6 +35,7 @@ interface Props {
 interface Classes {
   root: string;
   list: string;
+  link: string;
 }
 
 const sideList = (classes: Classes) => (
@@ -42,12 +47,14 @@ const sideList = (classes: Classes) => (
       }
       className={classes.root}
     >
-      <ListItem button>
-        <ListItemIcon>
-          <BookIcon />
-        </ListItemIcon>
-        <ListItemText primary="블로그" />
-      </ListItem>
+      <Link to="/" className={classes.link}>
+        <ListItem button>
+          <ListItemIcon>
+            <BookIcon />
+          </ListItemIcon>
+          <ListItemText primary="블로그" />
+        </ListItem>
+      </Link>
       <ListItem button>
         <ListItemIcon>
           <FaceIcon />
