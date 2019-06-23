@@ -9,7 +9,8 @@ const styles = () =>
   createStyles({
     li: {
       padding: '2% 3%',
-      border: '1px solid red',
+      border: '1px solid #ccc',
+      marginBottom: '15px',
     },
     dl: {
       width: '100%',
