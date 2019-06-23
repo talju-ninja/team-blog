@@ -5,9 +5,9 @@ import './index.scss';
 import './reset.scss';
 import { BrowserRouter } from 'react-router-dom';
 import Amplify from 'aws-amplify';
-// import config from './aws-exports';
+import config from './aws-exports.js';
 
-// Amplify.configure(config);
+Amplify.configure(config);
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,5 +1,7 @@
 import * as React from 'react';
-import Editor from 'tui-editor';
+
+// state, handler
+import { useEditor, useTags, useTitle } from './new-post.hooks';
 
 // Metarial UI
 import { withStyles, createStyles } from '@material-ui/core/styles';
@@ -16,6 +18,14 @@ import 'highlight.js/styles/github.css'; // code block highlight
 // Style load
 import * as style from './style.scss';
 import { primaryColor } from '../index';
+
+interface Props {
+  classes: {
+    title: string;
+    button: string;
+  };
+  handleRequestNewPost: (title: string, value: string, tags: string[]) => void;
+}
 
 // Metarial UI Component style
 const styles = createStyles({
@@ -50,56 +60,11 @@ const styles = createStyles({
   },
 });
 
-// Component props
-interface Props {
-  classes: {
-    title: string;
-    button: string;
-  };
-  'data-onRequestNewPost': (value: string) => void;
-}
-
-const { useState, useEffect } = React;
-
-// Editor intialize
-function useEditor(): tuiEditor.Editor | null {
-  const [editor, setEditor] = useState<tuiEditor.Editor | null>(null);
-  useEffect(() => {
-    const tuiEditorWidth =
-      window.innerWidth >= 1024
-        ? window.innerHeight - 150
-        : window.innerWidth * 0.7;
-    if (editor === null) {
-      setEditor(
-        new Editor({
-          el: document.querySelector('#editSection') as Element,
-          initialEditType: 'markdown',
-          previewStyle: window.innerWidth <= 1024 ? 'tab' : 'vertical',
-          height: tuiEditorWidth.toString() + 'px',
-        }),
-      );
-    }
-  }, [editor]);
-  return editor;
-}
-
-type HandleTitle = (e: React.ChangeEvent<HTMLInputElement>) => void;
-
-function useTitle() {
-  const [title, setTitle] = useState<string>('');
-  useEffect(() => {}, [title]);
-  const handleTitle: HandleTitle = e => {
-    const value: string = e.target.value;
-    setTitle(value);
-    console.log(title);
-  };
-  return [title, handleTitle] as [string, HandleTitle];
-}
-
 const NewPostView: React.FC<Props> = function(props) {
   // Loading state, effect
   const editor: tuiEditor.Editor | null = useEditor();
   const [title, handleTitle] = useTitle();
+  const [tags, handleTags, removeTags] = useTags();
 
   return (
     <main className={style.main}>
@@ -114,10 +79,14 @@ const NewPostView: React.FC<Props> = function(props) {
         }}
       />
       <section className={style.editSection} id="editSection" />
-      <InputTages />
+      <InputTages tags={tags} handleTags={handleTags} removeTags={removeTags} />
       <Button
         onClick={e =>
-          props['data-onRequestNewPost'](editor ? editor.getValue() : '')
+          props.handleRequestNewPost(
+            title,
+            editor ? editor.getValue() : '',
+            tags,
+          )
         }
         className={props.classes.button}
       >

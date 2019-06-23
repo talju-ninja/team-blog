@@ -34,39 +34,17 @@ interface Props {
     tagInput: string;
     tag: string;
   };
-}
-
-const { useState, useEffect } = React;
-
-// tags 상태와 tags 추가, 제거하는 이벤트 핸들러를 반환하는 함수
-// TODO: Chip 컴포넌트에 제거하는 이벤트 핸들러 달기 (인자 받아서)
-function useTags() {
-  const [tags, setTags] = useState<string[]>([]);
-  useEffect(() => {
-
-  }, [tags]);
-  function handleTags(
+  tags: string[];
+  handleTags: (
     e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>,
-  ) {
-    if (e.keyCode === 13) {
-      setTags([...tags, e.currentTarget.value]);
-      e.currentTarget.value = '';
-    }
-  }
-  function removeTags(tag: string) {
-    setTags(tags.filter(item => item !== tag));
-  }
-  return [tags, handleTags, removeTags] as [
-    string[],
-    (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
-    (tag: string) => void
-  ];
+  ) => void;
+  removeTags: (index: number) => void;
 }
 
 const InputTags: React.FC<Props> = props => {
   // tags 상태와 tags상태를 핸들링하는 함수
   // TODO: tags에 직접 접근할 수 없게 하기.
-  const [tags, handleTags, removeTags] = useTags();
+  const { tags, handleTags, removeTags } = props;
   return (
     <section className={style.section}>
       <Input
@@ -78,13 +56,17 @@ const InputTags: React.FC<Props> = props => {
         onKeyDown={e => handleTags(e)}
       />
       <ul>
-        {tags.map(tag => (
+        {tags.map((tag, index) => (
           <li
-            onClick={e => removeTags(tag)}
+            onClick={e => removeTags(index)}
             key={tag}
             className={style.tagContainer}
           >
-            <Chip className={props.classes.tag} label={`# ${tag}`} />
+            <Chip
+              className={props.classes.tag}
+              onClick={e => removeTags(index)}
+              label={`# ${tag}`}
+            />
           </li>
         ))}
       </ul>

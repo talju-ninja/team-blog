@@ -1,13 +1,10 @@
 import * as React from 'react';
 import NewPostView from '../../components/NewPostView';
 
-function handleRequestNewPost(value: string): void {
-  if (!value) {
-    alert('포스트를 입력해주세요.');
-  }
-  console.log(value);
+function handleRequestNewPost(title: string, value: any, tags: string[]): void {
+  console.log(title, value, tags);
 }
 
 export default function NewPost() {
-  return <NewPostView data-onRequestNewPost={handleRequestNewPost} />;
+  return <NewPostView handleRequestNewPost={handleRequestNewPost} />;
 }
